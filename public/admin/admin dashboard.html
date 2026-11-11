@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Redeemer's University</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="/Student-Complaint-Portal/public/images/logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <!-- Icon sprite (used by both admin pages) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-home" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3 2 12h3v8h5v-6h4v6h5v-8h3z"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path fill="currentColor" d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm8 1.5V8h4.5zM8 12v2h8v-2zm0 4v2h8v-2z"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path fill="currentColor" d="M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm7 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM9 13c-3.3 0-7 1.7-7 4v3h14v-3c0-2.3-3.7-4-7-4zm7 0c-.4 0-.8 0-1.2.1 1.4 1 2.2 2.3 2.2 3.9v3h5v-3c0-2-3.2-4-6-4z"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><path fill="currentColor" d="M19.4 13a7.6 7.6 0 0 0 0-2l2.1-1.6-2-3.5-2.5 1a7.4 7.4 0 0 0-1.7-1L15 3h-4l-.4 2.9a7.4 7.4 0 0 0-1.7 1l-2.5-1-2 3.5L6.6 11a7.6 7.6 0 0 0 0 2l-2.1 1.6 2 3.5 2.5-1a7.4 7.4 0 0 0 1.7 1L11 21h4l.4-2.9a7.4 7.4 0 0 0 1.7-1l2.5 1 2-3.5zM13 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z"/></symbol>
+    <symbol id="i-logout" viewBox="0 0 24 24"><path fill="currentColor" d="M10 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h6v-2H5V5h5zm6 4-1.4 1.4L17.2 11H8v2h9.2l-2.6 2.6L16 17l5-5z"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path fill="currentColor" d="M12 22a2.5 2.5 0 0 0 2.5-2.5h-5A2.5 2.5 0 0 0 12 22zm7-6v-5a7 7 0 0 0-5-6.7V4a2 2 0 0 0-4 0v.3A7 7 0 0 0 5 11v5l-2 2v1h18v-1z"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="currentColor"/><path fill="currentColor" d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><path fill="currentColor" d="M10 2a8 8 0 1 0 4.9 14.3l5.4 5.4 1.4-1.4-5.4-5.4A8 8 0 0 0 10 2zm0 2a6 6 0 1 1 0 12 6 6 0 0 1 0-12z"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path fill="currentColor" d="M12 5C6.5 5 2.7 9 1 12c1.7 3 5.5 7 11 7s9.3-4 11-7c-1.7-3-5.500-7-11-7zm0 11.500a4.500 4.500 0 1 1 0-9 4.500 4.500 0 0 1 0 9zm0-7a2.500 2.500 0 1 0 0 5 2.500 2.500 0 0 0 0-5z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 5v5.400l4 2.300-1 1.700-5-3V7z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-2 15-4-4 1.400-1.400L10 14.200l6.600-6.600L18 9z"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-1 5h2v7h-2zm0 9h2v2h-2z"/></symbol>
+  </svg>
+
+  <div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="side-brand">
+        <img src="/Student-Complaint-Portal/public/images/logo.png" alt="Redeemer's University logo" class="side-logo">
+        <span class="side-name">REDEEMER'S<br>UNIVERSITY</span>
+      </div>
+
+      <nav class="side-nav">
+        <a href="admin dashboard.html" class="side-link active">
+          <svg width="18" height="18"><use href="#i-home"/></svg> Dashboard
+        </a>
+        <a href="admin.html" class="side-link">
+          <svg width="18" height="18"><use href="#i-doc"/></svg> Complaints
+        </a>
+       
+
+        <span class="side-divider"></span>
+
+        <a href="index.html" class="side-link">
+          <svg width="18" height="18"><use href="#i-logout"/></svg> Logout
+        </a>
+      </nav>
+
+      <div class="side-campus"></div>
+    </aside>
+
+    <!-- MAIN -->
+    <div class="main">
+
+      <header class="topbar">
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">&#9776;</button>
+
+        <div class="topbar-right">
+          <button class="bell" aria-label="Notifications">
+            <svg width="22" height="22"><use href="#i-bell"/></svg>
+            <span class="bell-dot"></span>
+          </button>
+          <div class="admin-chip">
+            <span class="avatar"><svg width="20" height="20"><use href="#i-user"/></svg></span>
+            Admin <span class="caret">&#9662;</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="page-hero">
+        <h1>Welcome, Admin <span class="wave">&#128075;</span></h1>
+        <p>Redeemer's University &ndash; Student Complaint Portal</p>
+        <span class="hero-line"></span>
+      </section>
+
+      <div class="content">
+
+        <!-- STAT CARDS -->
+        <section class="stats">
+          <div class="stat stat-total">
+            <span class="stat-icon"><svg width="26" height="26"><use href="#i-doc"/></svg></span>
+            <strong id="statTotal">0</strong>
+            <span>Total</span>
+          </div>
+          <div class="stat stat-pending">
+            <span class="stat-icon"><svg width="26" height="26"><use href="#i-clock"/></svg></span>
+            <strong id="statPending">0</strong>
+            <span>Pending</span>
+          </div>
+          <div class="stat stat-resolved">
+            <span class="stat-icon"><svg width="26" height="26"><use href="#i-check"/></svg></span>
+            <strong id="statResolved">0</strong>
+            <span>Resolved</span>
+          </div>
+          <div class="stat stat-overdue">
+            <span class="stat-icon"><svg width="26" height="26"><use href="#i-alert"/></svg></span>
+            <strong id="statOverdue">0</strong>
+            <span>Overdue</span>
+          </div>
+        </section>
+
+        <!-- RECENT COMPLAINTS -->
+        <section class="panel">
+          <div class="panel-head">
+            <h2>Recent Complaints</h2>
+            <a href="admin-complaints.html" class="view-all">View All &rarr;</a>
+          </div>
+
+          <div class="table-scroll">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Student (Matric No.)</th>
+                  <th>Category</th>
+                  <th>Status</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody id="recentBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+      </div>
+
+      <footer class="admin-footer">
+        <em>...Running with the Vision</em>
+        <span>Redeemer's University</span>
+      </footer>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
