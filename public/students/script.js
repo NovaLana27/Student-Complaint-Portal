@@ -5,7 +5,15 @@ const portalBtn = document.getElementById('portalBtn');
 const portalDropdown = document.getElementById('portalDropdown');
 
 menuToggle.addEventListener('click', function () {
-  navLinks.classList.toggle('open');
+  const isOpen = navLinks.classList.toggle('open');
+  menuToggle.innerHTML = isOpen ? '&times;' : '&#9776;';
+});
+
+navLinks.querySelectorAll('.nav-link').forEach(function (link) {
+  link.addEventListener('click', function () {
+    navLinks.classList.remove('open');
+    menuToggle.innerHTML = '&#9776;';
+  });
 });
 
 portalBtn.addEventListener('click', function (event) {
