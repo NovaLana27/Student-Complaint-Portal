@@ -20,6 +20,15 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
+.container > * {
+  min-width: 0;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   background: var(--bg);
@@ -644,26 +653,43 @@ a {
 
   .menu-toggle {
     display: block;
+    position: relative;
+    z-index: 300;
   }
 
   .nav-links {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
+    position: fixed;
+    top: 0;
     right: 0;
+    bottom: 0;
+    z-index: 200;
+    width: 260px;
+    max-width: 80%;
     flex-direction: column;
     align-items: flex-start;
-    padding: 16px 24px;
+    gap: 6px;
+    padding: 80px 24px 24px;
     background: var(--navy);
+    box-shadow: -8px 0 24px rgba(0, 0, 0, 0.3);
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform 0.3s ease, visibility 0.3s;
   }
 
   .nav-links.open {
-    display: flex;
+    transform: translateX(0);
+    visibility: visible;
   }
 
   .portal-menu {
     margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .portal-dropdown {
+    position: static;
+    margin-top: 8px;
+    box-shadow: none;
   }
 
   .hero h1 {
@@ -678,7 +704,7 @@ a {
   }
 
   .hero {
-    background-image: linear-gradient(90deg, #eef4fb 40%, rgba(238, 244, 251, 0.6)), url('/public/images/hero-section.jpeg');
+    background-image: linear-gradient(90deg, #eef4fb 40%, rgba(238, 244, 251, 0.6)), url('/Student-Complaint-Portal/public/images/hero-section.jpeg');
     height: 30vh;
   }
 
